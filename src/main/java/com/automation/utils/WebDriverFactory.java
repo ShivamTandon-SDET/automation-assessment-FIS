@@ -4,6 +4,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class WebDriverFactory {
 	public static ChromeOptions options ;  
 	public static WebDriver createDriver() {
@@ -11,6 +13,7 @@ public class WebDriverFactory {
     	options.addArguments("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/114.0.0.0 Safari/537.36");
 
     	System.out.println("Inside createDriver");
+    	WebDriverManager.chromedriver().setup() ;
         return new ChromeDriver(options);
     }
 }
